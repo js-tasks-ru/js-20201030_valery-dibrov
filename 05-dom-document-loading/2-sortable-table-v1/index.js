@@ -24,10 +24,6 @@ export default class SortableTable {
       </div>`;
   }
 
-  // можно сделать метод moveArrowTo для перемещения стрелочки при сортировке
-  // при этом, думаю, будет удобно иметь внутреннюю коллекцию, какой-нибудь Map или объект,
-  // ключами которого будут имена колонок
-
   getHeader(headerConfig) {
     return `<div data-element="header" class="sortable-table__header sortable-table__row">
               ${headerConfig
@@ -122,9 +118,6 @@ export default class SortableTable {
   }
 
   sort(field, order) {
-    // а для сортировки у нас элемент каждой строки должен лежать в собственном объекте
-    // будет содержать в себе также и функцию для сортировки чисел
-
     this.headerElements[field].dataset.order = order;
     this.moveSortingArrowTo(field);
     const sortedData = this.sortData(this.data, field, order);
